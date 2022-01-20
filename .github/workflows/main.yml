@@ -12,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag threefoldjimber/threefold-connect-news:${{ github.sha }}
+        run: docker build . --file Dockerfile --tag laurensdruwel0/news:${{ github.sha }}
       - name: Log into GitHub Container Registry
         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - name: Push to dockerhub
-        run: docker push threefoldjimber/threefold-connect-news:${{ github.sha }}
+        run: docker push laurensdruwel0/news:${{ github.sha }}
       - name: Push latest to dockerhub
         run: |
-          docker tag threefoldjimber/threefold-connect-news:${{ github.sha }} threefoldjimber/threefold-connect-news:latest
-          docker push threefoldjimber/threefold-connect-news:latest
+          docker tag laurensdruwel0/news:${{ github.sha }} laurensdruwel0/news:latest
+          docker push laurensdruwel0/news:latest
 #   deploy:
 #     needs: [build]
 #     runs-on: whale-replacement
