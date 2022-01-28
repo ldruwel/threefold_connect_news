@@ -11,23 +11,25 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag laurensdruwel0/news:${{ github.sha }}
-      - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      - name: Push to dockerhub
-        run: docker push laurensdruwel0/news:${{ github.sha }}
-      - name: Push latest to dockerhub
-        run: |
-          docker tag laurensdruwel0/news:${{ github.sha }} laurensdruwel0/news:latest
-          docker push laurensdruwel0/news:latest
-  deploy:
-    needs: [build]
-    runs-on: self-hosted
-    steps:
-      - name: remove current running container
-        run: echo "test"
-      - name: create instance
-        run: kubectl 
-      - name: run container
-        run: echo "run container"
+      - name: test
+      - run: docker run hello-world
+#       - name: Build the Docker image
+#         run: docker build . --file Dockerfile --tag laurensdruwel0/news:${{ github.sha }}
+#       - name: Log into GitHub Container Registry
+#         run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+#       - name: Push to dockerhub
+#         run: docker push laurensdruwel0/news:${{ github.sha }}
+#       - name: Push latest to dockerhub
+#         run: |
+#           docker tag laurensdruwel0/news:${{ github.sha }} laurensdruwel0/news:latest
+#           docker push laurensdruwel0/news:latest
+#   deploy:
+#     needs: [build]
+#     runs-on: self-hosted
+#     steps:
+#       - name: remove current running container
+#         run: echo "test"
+#       - name: create instance
+#         run: kubectl 
+#       - name: run container
+#         run: echo "run container"
