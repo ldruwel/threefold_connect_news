@@ -10,6 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag laurensdruwel0/news:${{ github.sha }}
       - name: Log into GitHub Container Registry
