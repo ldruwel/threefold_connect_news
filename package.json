@@ -13,10 +13,11 @@
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "^0.3.0",
     "gridsome": "^0.7.0",
-    "gridsome-plugin-feed": "^1.0.2"
+    "gridsome-plugin-feed": "^1.0.2",
+    "node-sass": "^7.0.1",
+    "serve": "^13.0.2"
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
     "sass-loader": "^8.0.0"
   }
 }
