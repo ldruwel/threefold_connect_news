@@ -11,13 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: test
+      - name: Create kubeconfig
         run: |
           mkdir ${HOME}/.kube
           echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          echo ${{ secrets.KUBE_KEY }} | base64 --decode > ${HOME}/.kube/jimber-prod2.key
-          echo ${{ secrets.KUBE_CRT }} | base64 --decode > ${HOME}/.kube/jimber-prod2.crt
           cat ${HOME}/.kube/config
+#           mkdir ${HOME}/.kube
+#           echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+#           echo ${{ secrets.KUBE_KEY }} | base64 --decode > ${HOME}/.kube/jimber-prod2.key
+#           echo ${{ secrets.KUBE_CRT }} | base64 --decode > ${HOME}/.kube/jimber-prod2.crt
+#           cat ${HOME}/.kube/config
       - name: Use context
         run: kubectl config use-context jimber
       - name: deploy to kubernetes
