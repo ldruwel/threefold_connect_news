@@ -14,15 +14,15 @@ service:
 
 ingress:
         hosts:
-                - name: news.jimbertesting.be
+                - name: news2.jimbertesting.be
+                  path: /
+                  service: news2-prod
+                  port: 80
+                - name: news2.jimbertesting.be
                   path: /
                   service: news-prod
                   port: 80
-                - name: news.jimbertesting.be
-                  path: /
-                  service: news-prod
-                  port: 80
-                - name: news.jimbertesting.be
+                - name: news2.jimbertesting.be
                   path: /
                   service: news-prod
                   port: 80
