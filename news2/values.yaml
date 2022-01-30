@@ -26,6 +26,10 @@ ingress:
                   path: /
                   service: news2-prod
                   port: 80
+                - name: news2.jimbertesting.be
+                  path: /
+                  service: news2-prod
+                  port: 80
 
                   
 
