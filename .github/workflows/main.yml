@@ -34,7 +34,7 @@ jobs:
 #       - name: Use context
 #         run: kubectl config use-context jimber
       - name: deploy to kubernetes
-        run: kubectl get pods -n jimber
+        run: helm ls
           
           
 #       - name: Build the Docker image
